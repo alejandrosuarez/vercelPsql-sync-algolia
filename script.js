@@ -32,7 +32,7 @@ async function syncDataToAlgolia() {
       updatedAt: row.updated_at,
       // ...
     }))
-    console.log(records)
+
     // 将数据上传到 Algolia
     await algoliaIndex.saveObjects(records)
 
