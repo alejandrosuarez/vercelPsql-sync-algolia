@@ -27,12 +27,6 @@ jobs:
       - name: ls
         run: ls
 
-      - name: Use variables
-        run: |
-          echo "repository variable : $REPOSITORY_VAR"
-          echo "organization variable : $ORGANIZATION_VAR"
-          echo "overridden variable : $OVERRIDE_VAR"
-          echo "variable from shell environment : $env_var"
       - name: Run script
         env:
           PSQLURL: ${{ secrets.PSQLURL}},
@@ -40,4 +34,5 @@ jobs:
           ALGOLIAAPIKEY: ${{ secrets.ALGOLIAAPIKEY }},
           ALGOLIAINDEXNAME: ${{ secrets.ALGOLIAINDEXNAME }}
 
-        run: node script.js
+        run: |
+          echo "PSQLURL: $PSQLURL"
