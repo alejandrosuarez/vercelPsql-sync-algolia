@@ -24,5 +24,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: ls
+        run: ls
+
       - name: Run script
-        run: node ../scripts.js
+        run: node scripts.js
