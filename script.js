@@ -14,7 +14,7 @@ const algoliaIndexName = process.env.ALGOLIAINDEXNAME
 // 创建 Algolia 搜索客户端
 const algoliaClient = algoliasearch(algoliaAppId, algoliaApiKey)
 const algoliaIndex = algoliaClient.initIndex(algoliaIndexName)
-
+const url = "https://bloniea.com"
 // 从 PostgreSQL 中检索数据并上传到 Algolia
 async function syncDataToAlgolia() {
   try {
@@ -29,6 +29,7 @@ async function syncDataToAlgolia() {
       category_title: row.category_title,
       title: row.title,
       img_url: row.img_url,
+      url: `${url}/article?id=${row.article_id}`,
       createdAt: row.created_at,
       updatedAt: row.updated_at,
       // ...
