@@ -3,14 +3,13 @@ const algoliasearch = require("algoliasearch")
 
 // 连接到 PostgreSQL 数据库
 const pgClient = new PGClient({
-  connectionString:
-    "postgres://default:Bsf0T5xVqYFI@ep-spring-bread-a402dds8-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
+  connectionString: process.env.PSQLURL,
 })
 pgClient.connect()
 // Algolia 应用ID和API密钥
-const algoliaAppId = "NYDGZLWU8E"
-const algoliaApiKey = "030fc16415850ec3fa5d611f66233a76"
-const algoliaIndexName = "myblog"
+const algoliaAppId = process.env.ALGOLIAAPPID
+const algoliaApiKey = process.env.ALGOLIAAPIKEY
+const algoliaIndexName = process.env.ALGOLIAINDEXNAME
 // 创建 Algolia 搜索客户端
 const algoliaClient = algoliasearch(algoliaAppId, algoliaApiKey)
 const algoliaIndex = algoliaClient.initIndex(algoliaIndexName)
