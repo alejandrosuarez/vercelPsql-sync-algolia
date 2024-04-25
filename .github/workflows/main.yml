@@ -28,4 +28,4 @@ jobs:
         run: ls
 
       - name: Run script
-        run: node scripts.js
+        run: node script.js
