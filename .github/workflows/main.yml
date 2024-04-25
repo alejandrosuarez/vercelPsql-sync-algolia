@@ -30,4 +30,7 @@ jobs:
       - name: Run script
         env:
           PSQLURL: ${{ secrets.PSQLURL }}
+          ALGOLIAAPIKEY: ${{ secrets.ALGOLIAAPIKEY }}
+          ALGOLIAAPPID: ${{ secrets.ALGOLIAAPPID }}
+          ALGOLIAINDEXNAME: ${{ secrets.ALGOLIAINDEXNAME }}
         run: node script.js
