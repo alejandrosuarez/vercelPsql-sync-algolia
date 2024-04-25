@@ -27,9 +27,15 @@ jobs:
       - name: ls
         run: ls
 
+      - name: Use variables
+        run: |
+          echo "repository variable : $REPOSITORY_VAR"
+          echo "organization variable : $ORGANIZATION_VAR"
+          echo "overridden variable : $OVERRIDE_VAR"
+          echo "variable from shell environment : $env_var"
       - name: Run script
         env:
-          PSQLURL: ${{ secrets.PSQLURL }},
+          PSQLURL: ${{ secrets.PSQLURL}},
           ALGOLIAAPPID: ${{ secrets.ALGOLIAAPPID }},
           ALGOLIAAPIKEY: ${{ secrets.ALGOLIAAPIKEY }},
           ALGOLIAINDEXNAME: ${{ secrets.ALGOLIAINDEXNAME }}
