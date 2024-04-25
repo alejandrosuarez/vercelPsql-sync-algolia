@@ -33,6 +33,7 @@ jobs:
           ALGOLIAAPPID: ${{ secrets.ALGOLIAAPPID }},
           ALGOLIAAPIKEY: ${{ secrets.ALGOLIAAPIKEY }},
           ALGOLIAINDEXNAME: ${{ secrets.ALGOLIAINDEXNAME }}
+          MY_SECRET: ${{ secrets.ALGOLIAAPPID }}
 
         run: |
-          echo "PSQLURL: $PSQLURL"
+          echo "PSQLURL: $MY_SECRET"
