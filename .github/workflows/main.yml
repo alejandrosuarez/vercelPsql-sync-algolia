@@ -1,7 +1,6 @@
 name: algolia Sync
 
 on:
-  workflow_dispatch:
   schedule:
     - cron: "0 * * * *" # 每小时的整点执行
 
