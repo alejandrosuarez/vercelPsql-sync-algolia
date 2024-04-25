@@ -8,7 +8,7 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-
+    environment: algolia
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -27,14 +27,7 @@ jobs:
       - name: ls
         run: ls
 
-      - name: env
-        env:
-          PSQLURL: ${{ vars.PSQLURL }}
-        run: |
-          echo "repository variable : $ALGOLIAAPIKEY"
-          echo "organization variable : $ALGOLIAAPPID"
-          echo "overridden variable : $ALGOLIAINDEXNAME"
-          echo "variable from shell environment : $PSQLURL"
-
       - name: Run script
+        env:
+          PSQLURL: ${{ secrets.PSQLURL }}
         run: node script.js
