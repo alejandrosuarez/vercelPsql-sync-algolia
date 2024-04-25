@@ -27,5 +27,14 @@ jobs:
       - name: ls
         run: ls
 
+      - name: env
+        env:
+          PSQLURL: ${{ vars.PSQLURL }}
+        run: |
+          echo "repository variable : $ALGOLIAAPIKEY"
+          echo "organization variable : $ALGOLIAAPPID"
+          echo "overridden variable : $ALGOLIAINDEXNAME"
+          echo "variable from shell environment : $PSQLURL"
+
       - name: Run script
         run: node script.js
