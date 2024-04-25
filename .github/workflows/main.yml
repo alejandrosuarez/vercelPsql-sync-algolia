@@ -1,8 +1,9 @@
 name: algolia Sync
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'  # 每小时的整点执行
+    - cron: "0 * * * *" # 每小时的整点执行
 
 jobs:
   sync:
@@ -15,13 +16,13 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: "14"
 
       - name: Install pnpm
         run: npm install -g pnpm
 
       - name: Install dependencies
-        run: pnpm install  
+        run: pnpm install
 
       - name: Run script
         run: node scripts.js
