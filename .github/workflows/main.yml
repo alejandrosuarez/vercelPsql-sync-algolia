@@ -28,4 +28,10 @@ jobs:
         run: ls
 
       - name: Run script
+        env:
+          PSQLURL: ${{ secrets.PSQLURL }},
+          ALGOLIAAPPID: ${{ secrets.ALGOLIAAPPID }},
+          ALGOLIAAPIKEY: ${{ secrets.ALGOLIAAPIKEY }},
+          ALGOLIAINDEXNAME: ${{ secrets.ALGOLIAINDEXNAME }}
+
         run: node script.js
