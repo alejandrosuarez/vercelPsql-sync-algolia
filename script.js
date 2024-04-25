@@ -2,6 +2,7 @@ const { Client: PGClient } = require("pg")
 const algoliasearch = require("algoliasearch")
 
 // 连接到 PostgreSQL 数据库
+console.log(process.env.PSQLURL)
 const pgClient = new PGClient({
   connectionString: process.env.PSQLURL,
 })
@@ -32,7 +33,7 @@ async function syncDataToAlgolia() {
       updatedAt: row.updated_at,
       // ...
     }))
-    console.log(records)
+
     // 将数据上传到 Algolia
     await algoliaIndex.saveObjects(records)
 
